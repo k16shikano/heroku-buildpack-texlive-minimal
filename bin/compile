@@ -1,0 +1,16 @@
+#!/bin/bash
+
+BUILD_DIR=$1
+
+echo "Installing TeX Live..."
+
+# Create a directory for TeX Live in the Heroku app slug
+mkdir -p $BUILD_DIR/.heroku/texlive
+
+# Extract the texlive.tar.gz file
+tar -xzf $BUILD_DIR/buildpack/texlive.tar.gz -C $BUILD_DIR/.heroku/texlive
+
+# Ensure the TeX Live binaries are in the PATH
+echo "export PATH=\$PATH:\$HOME/.heroku/texlive/bin/x86_64-linux" > $BUILD_DIR/.profile.d/texlive.sh
+
+echo "TeX Live installed successfully."
