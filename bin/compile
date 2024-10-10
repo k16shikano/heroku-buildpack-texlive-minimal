@@ -8,7 +8,7 @@ echo "Installing TeX Live..."
 mkdir -p $BUILD_DIR/.heroku/texlive
 
 # Extract the texlive.tar.gz file
-tar -xzf texlive.tar.gz -C $BUILD_DIR/.heroku/texlive
+tar -xzf texlive.tar.gz -C $BUILD_DIR/.heroku
 
 # Ensure the TeX Live binaries are in the PATH
 echo "export PATH=\$PATH:\$HOME/.heroku/texlive/bin/x86_64-linux" > $BUILD_DIR/.profile.d/texlive.sh
